@@ -24,7 +24,7 @@ h1 {
 }
 
 main {
-  background: red;
+  background: purple;
   width: auto;
   height: 700px;
   margin: 0 auto;
@@ -53,5 +53,12 @@ div {
 
 .circle {
   border-radius: 50%;
+  background: magenta;
+}
+
+footer {
   background: yellow;
+  height: 70px;
+  text-align: center;
+  font-size: 60px;
 }
