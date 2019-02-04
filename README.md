@@ -11,8 +11,13 @@ The player must then click on the shapes to change their form so that they are a
 ## Wireframe
 
 [StartPage Wireframe](imgs/WireFrame1.jpg)
+
+
 [PlayPhase Wireframe](imgs/WireFrame2.jpg)
+
+
 [EndGame Wireframe](imgs/WireFrame3.jpg)
+
 
 ## Header
 
@@ -32,6 +37,16 @@ The player must then click on the shapes to change their form so that they are a
 - HTML
 - CSS
 - JavaScript
+
+## MVP
+
+- Create a way to cycle through the shape types
+- Create a winning condition
+- Create a timer thanks links up with the winning condition
+
+## Secondary MVP
+
+- Create a second level if the player wins with more objects
 
 ## Obstacles
 

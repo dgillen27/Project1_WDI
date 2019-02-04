@@ -1,36 +1,92 @@
-const square = document.querySelector(".square");
-const triangle = document.querySelector(".triangle");
-const circle = document.querySelector(".circle");
+  // const square = document.querySelector(".square");
+  // const triangle = document.querySelector(".triangle");
+  // const circle = document.querySelector(".circle");
+
 const shape = document.querySelector("div");
+const button = document.querySelector("button")
+const display = document.querySelector('#clock');
+const main = document.querySelector("main")
+
+//function that creates the shapes
+const createShapes = () => {
+  const shapes = document.createElement("div")
+  const them = document.querySelector(".square")
+  // const position = (shapes) => {
+  //   const styleTop = Math.floor(Math.random() * 100) + 1;
+  //   const styleLeft = Math.floor(Math.random() * 100) + 1;
+  //
+  //   shapes.style.top = styleTop
+  //   shapes.style.left = styleLeft
+  // }
+  shapes.setAttribute("class", "square")
+  main.appendChild(shapes)
+}
+
+//Function to start the game
+const startGame = () => {
+  startTimer(60, display);
+  for(let i = 0; i < 12; i++) {
+    createShapes();
+  }
+}
+
+//Timer function taken from stackoverflow
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
 
 
-// const changeShapes = (ev) => {
-//   if (ev.target.classList === "square") {
-//     ev.target.classList.add('triangle');
-//     ev.target.classList.remove("square");
-//     console.log("this was a square")
-//   } else if (shape.classList === "triangle") {
-//     ev.target.classList.add('circle')
-//     ev.target.classList.remove('triangle')
-//   } else if (shape.classList === "circle") {
-//     ev.target.classList.add("square")
-//     ev.target.classList.remove("circle")
-//   }
-// }
+//EventListeners
 
-square.addEventListener('click', (ev) => {
-    console.log("square")
+//start button/game starter
+button.addEventListener('click', startGame);
+
+//change shape function
+main.addEventListener('click', (ev) => {
   if (ev.target.className === "square"){
     ev.target.classList.add('triangle');
     ev.target.classList.remove("square");
-  } else if (shape.className === "triangle") {
+    console.log("you clicked a square")
+  }
+  else if (ev.target.className === "triangle") {
     ev.target.classList.add('circle')
     ev.target.classList.remove('triangle')
-  } else if (shape.className === "circle") {
+    console.log("you clicked a triangle");
+  }
+  else if (ev.target.className === "circle") {
     ev.target.classList.add("square")
     ev.target.classList.remove("circle")
+    console.log("you clicked a cirlce");
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // CODE THAT KINDA WORKED BEFORE
 
