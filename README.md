@@ -2,21 +2,44 @@
 
 ## Instructions
 
-In this game, the objective is to click on the shapes on the screen until they are all the same shape. If you can achieve this goal within the time limit you win, if not, you lose.
+In this game, the objective is to change the shape of each floating object to one uniform shape. You do this by clicking on the existing randomly generated shapes.
+
+To start the game off, the player will click the **start** button. Upon clicking the start button, several shapes will randomly generate and will be moving in random directions around the screen.
+
+The player must then click on the shapes to change their form so that they are all the same shape. When the player clicks on a square it will turn into a triangle, a triangle will turn into a circle, and a circle will turn into a square. If you can match up the shapes within the time limit you win. If not, you lose.
 
 ## Wireframe
 
+[StartPage Wireframe](imgs/WireFrame1.jpg)
+[PlayPhase Wireframe](imgs/WireFrame2.jpg)
+[EndGame Wireframe](imgs/WireFrame3.jpg)
+
 ## Header
 
+- Start button
+- Title
+- Timer
+
 ## Main
-The shapes that appear on the screen after clicking the start button will be randomly generated and will be moving to random locations on the screen.
+
+- Squares
+- Triangles
+- Circles
+
 
 ## Technologies
-When you click on a square, it will turn into a triangle. A triangle will then turn into a circle if you click on it and a circle will turn into a square.
+
+- HTML
+- CSS
+- JavaScript
+
 ## Obstacles
 
+The problems I anticipate running into include:
+- Making a way to cycle through the different shape types  
+- Creating a way of linking up the timer and the game
+- Figuring out how to create the winning condition.
 
 ## Solutions
-I plan on creating this game using JavaScript, HTML, and CSS.
 
-The problems I anticipate running into include, making a way to cycle through the different shape types and creating a way of linking up the timer and the game. A large concern of mine is figuring out how to create the winning condition.
+In order to overcome these potential problems, I plan on using online resources such as [MDN](https://developer.mozilla.org/en-US/), [W3Schools](https://www.w3schools.com/), and [stackoverflow](https://stackoverflow.com/). In addition to these resources, I intend to seek out help from peers and instructors alike.  
