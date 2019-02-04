@@ -28,12 +28,16 @@ main {
   width: auto;
   height: 700px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
 }
 
 div {
   height: 100px;
   width: 100px;
   background: blue;
+  justify-self: center;
 }
 
 .square {
@@ -45,9 +49,9 @@ div {
 .triangle {
   width: 0;
   height: 0;
-  border-left: 50px solid transparent;
-  border-right:50px solid transparent;
-  border-bottom: 50px solid green;
+  border-left: 60px solid transparent;
+  border-right:60px solid transparent;
+  border-bottom: 90px solid green;
   background: transparent;
 }
 
