@@ -6,11 +6,13 @@ const shape = document.querySelector("div");
 const button = document.querySelector("button")
 const display = document.querySelector('#clock');
 const main = document.querySelector("main")
+const allShapes = document.querySelectorAll("div")
+const reallyAllShapes = document.querySelectorAll("")
 
 //function that creates the shapes
 const createShapes = () => {
   const shapes = document.createElement("div")
-  const them = document.querySelector(".square")
+  const reallyAllShapes = document.querySelector(".square")
   // const position = (shapes) => {
   //   const styleTop = Math.floor(Math.random() * 100) + 1;
   //   const styleLeft = Math.floor(Math.random() * 100) + 1;
@@ -30,6 +32,9 @@ const startGame = () => {
   }
 }
 
+//start button/game starter
+button.addEventListener('click', startGame);
+
 //Timer function taken from stackoverflow
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
@@ -48,37 +53,38 @@ function startTimer(duration, display) {
     }, 1000);
 }
 
+const youWon = () => {
+if (allShapes[0].className === "circle" && allShapes[1].className === "circle" && allShapes[2].className === "circle") {
+  alert("You did it, you won")}
 
-//EventListeners
+}
 
-//start button/game starter
-button.addEventListener('click', startGame);
+//Core game
+
+const sheets = (ev) => {
+ if (ev.target.className === "square"){
+   ev.target.classList.add('triangle');
+   ev.target.classList.remove("square");
+   console.log("you clicked a square")
+ }
+ else if (ev.target.className === "triangle") {
+   ev.target.classList.add('circle')
+   ev.target.classList.remove('triangle')
+   console.log("you clicked a triangle");
+ }
+ else if (ev.target.className === "circle") {
+   ev.target.classList.add("square")
+   ev.target.classList.remove("circle")
+   console.log("you clicked a cirlce");
+ }
+ youWon();
+}
+
 
 //change shape function
-main.addEventListener('click', (ev) => {
-  if (ev.target.className === "square"){
-    ev.target.classList.add('triangle');
-    ev.target.classList.remove("square");
-    console.log("you clicked a square")
-  }
-  else if (ev.target.className === "triangle") {
-    ev.target.classList.add('circle')
-    ev.target.classList.remove('triangle')
-    console.log("you clicked a triangle");
-  }
-  else if (ev.target.className === "circle") {
-    ev.target.classList.add("square")
-    ev.target.classList.remove("circle")
-    console.log("you clicked a cirlce");
-  }
-});
+main.addEventListener('click', sheets);
 
-
-
-
-
-
-
+//win condition
 
 
 
