@@ -23,15 +23,15 @@ const createShapes = () => {
     }
 }
 const randomPosition = (thing) => {
-  const styleTop = Math.floor(Math.random() * window.innerHeight);
-  const styleLeft = Math.floor(Math.random() * window.innerWidth);
+  const styleTop = Math.floor(Math.random() * (window.innerHeight - 200));
+  const styleLeft = Math.floor(Math.random() * (window.innerWidth - 100));
 
-  thing.style.top = `${styleTop}px`;
+  thing.style.bottom = `${styleTop}px`;
   thing.style.left = `${styleLeft}px`;
 }
 //Function to start the game
 const startGame = () => {
-  startTimer(90, display);
+  startTimer(30, display);
     tutorialPage.remove();
       createShapes();
 }

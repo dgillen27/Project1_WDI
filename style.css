@@ -3,19 +3,13 @@ body {
 }
 header {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   height: 100px;
   align-items: center;
   justify-items: center;
   background-color: lightblue;
   border-bottom: 5px solid black;
   margin: 0 auto;
-}
-
-button {
-  font-size: 50px;
-  letter-spacing: 10px;
-  width: 300px;
 }
 
 h1 {
@@ -26,23 +20,24 @@ h1 {
 main {
   background: purple;
   width: auto;
-  height: 700px;
+  height: 770px;
   margin: 0 auto;
   /* display: grid;
   grid-template-columns: 1fr 1fr 1fr; */
 }
 
 section {
-  grid-column-start: 1;
-  grid-column-end: 4;
+  /* grid-column-start: 1;
+  grid-column-end: 4; */
   background: purple;
   width: auto;
-  height: 700px;
+  height: 770px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 6fr;
+  grid-template-rows: 1fr 1fr 1fr 4fr;
   align-items: center;
+  justify-items: center;
 }
 
 h2 {
@@ -59,6 +54,13 @@ p {
   text-align: center;
 }
 
+button {
+  font-size: 50px;
+  letter-spacing: 10px;
+  width: 300px;
+  grid-column-start: 2;
+}
+
 div {
   height: 100px;
   width: 100px;
@@ -68,14 +70,17 @@ div {
 
 #starter-square {
   position: relative;
+  grid-row-start: 4;
 }
 
 #starter-circle {
   position: relative;
+  grid-row-start: 4;
 }
 
 #starter-triangle {
   position: relative;
+  grid-row-start: 4;
 }
 
 .shape {
@@ -100,9 +105,9 @@ div {
   background: magenta;
 }
 
-footer {
+/* footer {
   background: yellow;
   height: 70px;
   text-align: center;
   font-size: 60px;
-}
+} */
