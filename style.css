@@ -28,9 +28,35 @@ main {
   width: auto;
   height: 700px;
   margin: 0 auto;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr; */
+}
+
+section {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  background: purple;
+  width: auto;
+  height: 700px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 6fr;
   align-items: center;
+}
+
+h2 {
+  font-size: 70px;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  text-align: center;
+}
+
+p {
+  font-size: 30px;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  text-align: center;
 }
 
 div {
@@ -38,6 +64,22 @@ div {
   width: 100px;
   background: blue;
   justify-self: center;
+}
+
+#starter-square {
+  position: relative;
+}
+
+#starter-circle {
+  position: relative;
+}
+
+#starter-triangle {
+  position: relative;
+}
+
+.shape {
+  position: absolute;
 }
 
 .square {

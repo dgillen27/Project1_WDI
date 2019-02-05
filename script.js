@@ -1,35 +1,39 @@
-  // const square = document.querySelector(".square");
-  // const triangle = document.querySelector(".triangle");
-  // const circle = document.querySelector(".circle");
-
 const shape = document.querySelector("div");
 const button = document.querySelector("button")
 const display = document.querySelector('#clock');
 const main = document.querySelector("main")
 const allShapes = document.querySelectorAll("div")
-const reallyAllShapes = document.querySelectorAll("")
+const title = document.querySelector("#title")
+const shapeSelection = ["square", "triangle", "circle"]
+const placeTime = document.querySelector("#clock")
+const starterSquare = document.querySelector("#starter-square")
+const starterTriangle = document.querySelector("#starter-triangle")
+const starterCircle = document.querySelector("#starter-circle")
+const tutorialPage = document.querySelector("section")//tutorial page
 
 //function that creates the shapes
 const createShapes = () => {
-  const shapes = document.createElement("div")
-  const reallyAllShapes = document.querySelector(".square")
-  // const position = (shapes) => {
-  //   const styleTop = Math.floor(Math.random() * 100) + 1;
-  //   const styleLeft = Math.floor(Math.random() * 100) + 1;
-  //
-  //   shapes.style.top = styleTop
-  //   shapes.style.left = styleLeft
-  // }
-  shapes.setAttribute("class", "square")
-  main.appendChild(shapes)
+    for(let i = 0; i < 12; i++) {
+      const shape = document.createElement("div");
+      shape.id = "shapes" + i;
+      shape.classList.add("shape");
+      shape.classList.add(shapeSelection[Math.floor(Math.random() * shapeSelection.length)])
+      main.appendChild(shape)
+      randomPosition(shape);
+    }
 }
+const randomPosition = (thing) => {
+  const styleTop = Math.floor(Math.random() * window.innerHeight);
+  const styleLeft = Math.floor(Math.random() * window.innerWidth);
 
+  thing.style.top = `${styleTop}px`;
+  thing.style.left = `${styleLeft}px`;
+}
 //Function to start the game
 const startGame = () => {
-  startTimer(60, display);
-  for(let i = 0; i < 12; i++) {
-    createShapes();
-  }
+  startTimer(90, display);
+    tutorialPage.remove();
+      createShapes();
 }
 
 //start button/game starter
@@ -53,26 +57,22 @@ function startTimer(duration, display) {
     }, 1000);
 }
 
-const youWon = () => {
-if (allShapes[0].className === "circle" && allShapes[1].className === "circle" && allShapes[2].className === "circle") {
-  alert("You did it, you won")}
 
-}
 
 //Core game
 
-const sheets = (ev) => {
- if (ev.target.className === "square"){
+const changeShape = (ev) => {
+ if (ev.target.className === "shape square"){
    ev.target.classList.add('triangle');
    ev.target.classList.remove("square");
    console.log("you clicked a square")
  }
- else if (ev.target.className === "triangle") {
+ else if (ev.target.className === "shape triangle") {
    ev.target.classList.add('circle')
    ev.target.classList.remove('triangle')
    console.log("you clicked a triangle");
  }
- else if (ev.target.className === "circle") {
+ else if (ev.target.className === "shape circle") {
    ev.target.classList.add("square")
    ev.target.classList.remove("circle")
    console.log("you clicked a cirlce");
@@ -80,36 +80,24 @@ const sheets = (ev) => {
  youWon();
 }
 
-
-//change shape function
-main.addEventListener('click', sheets);
-
 //win condition
 
+const youWon = () => {
+  const madShapes = document.querySelectorAll(".shape")
 
+  if (document.querySelectorAll(".square").length === 12) {
+    title.innerText = "SQUARES WIN"
+  } else if (document.querySelectorAll(".triangle").length === 12) {
+    title.innerText = "TRIANGLES WIN"
+  } else if (document.querySelectorAll(".circle").length === 12) {
+    title.innerText = "CIRCLES WIN"
+  }else if (placeTime === 0) {
+    alert("you lost")
+  } else {
+    title.innerText = "Click Those Shapes!"
+  }
+}
 
+//change shape function
 
-
-
-
-
-
-// CODE THAT KINDA WORKED BEFORE
-
-// square.addEventListener('click', () => {
-//   square.classList.add('triangle');
-//   square.classList.remove("square");
-//   console.log("YOU CLICKED A SQUARE");
-// });
-//
-// triangle.addEventListener('click', () => {
-//   triangle.classList.add('circle')
-//   triangle.classList.remove('triangle')
-//   console.log("YOU CLICKED A TRIANGLE")
-// });
-//
-// circle.addEventListener('click', (ev) => {
-//     circle.classList.add("square")
-//     circle.classList.remove("circle")
-//     console.log("YOU CLICKED A CIRCLE")
-// });
+main.addEventListener('click', changeShape);
