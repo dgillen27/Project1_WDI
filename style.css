@@ -98,6 +98,7 @@ div {
   border-right:50px solid transparent;
   border-bottom: 100px solid green;
   background: transparent;
+  transition: transform .2s ease-in-out;
 }
 
 .circle {
