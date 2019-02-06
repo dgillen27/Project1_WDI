@@ -40,6 +40,12 @@ section {
   justify-items: center;
 }
 
+#win-page {
+  background: purple;
+  width: auto;
+  height: 770px;
+  margin: 0 auto;
+}
 h2 {
   font-size: 70px;
   grid-column-start: 1;
@@ -105,6 +111,8 @@ div {
   border-radius: 50%;
   background: magenta;
 }
+
+
 
 /* footer {
   background: yellow;
