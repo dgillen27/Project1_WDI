@@ -7,7 +7,7 @@ body {
 
   margin: 0 auto;
   font-family: 'Major Mono Display', monospace;
-  background: #fdda48;
+  background: #ffda41;
 }
 header {
   display: grid;
@@ -15,7 +15,7 @@ header {
   height: 100px;
   align-items: center;
   justify-items: center;
-  background-color: #fdda48;
+  background-color: #fdda41;
   border-bottom: 5px solid black;
   margin: 0 auto;
 }
@@ -26,7 +26,7 @@ h1 {
 }
 
 main {
-  background: linear-gradient(#fdda48, #f3ff32);
+  background: linear-gradient(#ffda41, #f3ff32);
   width: auto;
   height: 770px;
   margin: 0 auto;
@@ -34,13 +34,13 @@ main {
 }
 
 section {
-  background: linear-gradient(#fdda48, #f3ff32);
+  background: linear-gradient(#ffda41, #f3ff32);
   width: auto;
   height: 770px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 4fr 1fr 2fr;
+  grid-template-rows: 1fr 1fr 3fr 1fr 1fr 2fr;
   align-items: center;
   justify-items: center;
 }
@@ -65,10 +65,20 @@ button {
   width: 300px;
   grid-column-start: 2;
   font-family: inherit;
-  grid-row-start: 5;
+  grid-row-start: 6;
   -webkit-appearance: none;
   background: #fdda48;
-  border: solid grey  3px;
+  border: none;
+}
+
+button:focus {
+  box-shadow: 0px 0px 40px 10px red;
+  outline: none;
+}
+
+button:hover {
+  box-shadow: 0px 0px 40px 10px red;
+  outline: none;
 }
 
 .difficulty {
@@ -136,10 +146,11 @@ div {
 
 .square {
   background: #f95800;
-  transition: 1.5s;
+  transition: bottom 1.5s, left 1.5s;
   transition-timing-function: linear;
   cursor: pointer;
 }
+
 
 .triangle {
   width: 0;
@@ -148,7 +159,7 @@ div {
   border-right:50px solid transparent;
   border-bottom: 100px solid #90028a;
   background: transparent;
-  transition: 1.5s;
+  transition: bottom 1.5s, left 1.5s;
   transition-timing-function: linear;
   cursor: pointer;
 }
@@ -156,7 +167,7 @@ div {
 .circle {
   border-radius: 50%;
   background: #2e0872;
-  transition: 1.5s;
+  transition: bottom 1.5s, left 1.5s;
   transition-timing-function: linear;
   cursor: pointer;
 }

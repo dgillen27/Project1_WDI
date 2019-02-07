@@ -30,12 +30,15 @@ const selectDifficulty = (ev) => {
   if (ev.target === easyButton) {
     title.innerText = "Lazy Mode";
     difficulty = easyNum;
+    difficultyTime = easyTime
   } else if (ev.target === medButton) {
     title.innerText = "Mediocre Mode";
     difficulty = mediumNum;
+    difficultyTime = mediumTime
   } else if (ev.target === hardButton) {
     title.innerText = "Boss Mode";
     difficulty = hardNum;
+    difficultyTime = hardTime
   }
 }
 
@@ -139,8 +142,7 @@ const losePage = () => {
 
 const getRid = () => {
     document.querySelectorAll(".shape").forEach( (el) => {
-      el.remove();
-      // display.remove();
+    el.remove();
     })
 
   }
@@ -151,7 +153,7 @@ const resetGame = () => {
 
 const resetButton = () => {
   const endButton = document.createElement("button")
-  const txt = document.createTextNode("Play again?")
+  const txt = document.createTextNode("Try again?")
   endButton.classList.add("endButton")
   endButton.appendChild(txt);
   main.appendChild(endButton);
