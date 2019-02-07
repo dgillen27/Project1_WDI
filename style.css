@@ -1,5 +1,13 @@
+@font-face {
+  font-family: myFont;
+  src: url(<link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet">);
+}
+
 body {
+
   margin: 0 auto;
+  font-family: 'Major Mono Display', monospace;
+  background: #fdda48;
 }
 header {
   display: grid;
@@ -7,7 +15,7 @@ header {
   height: 100px;
   align-items: center;
   justify-items: center;
-  background-color: lightblue;
+  background-color: #fdda48;
   border-bottom: 5px solid black;
   margin: 0 auto;
 }
@@ -18,34 +26,25 @@ h1 {
 }
 
 main {
-  background: purple;
+  background: linear-gradient(#fdda48, #f3ff32);
   width: auto;
   height: 770px;
   margin: 0 auto;
-  /* display: grid;
-  grid-template-columns: 1fr 1fr 1fr; */
+  text-align: center;
 }
 
 section {
-  /* grid-column-start: 1;
-  grid-column-end: 4; */
-  background: purple;
+  background: linear-gradient(#fdda48, #f3ff32);
   width: auto;
   height: 770px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 4fr;
+  grid-template-rows: 1fr 1fr 2fr 1fr 3fr;
   align-items: center;
   justify-items: center;
 }
 
-#win-page {
-  background: purple;
-  width: auto;
-  height: 770px;
-  margin: 0 auto;
-}
 h2 {
   font-size: 70px;
   grid-column-start: 1;
@@ -54,7 +53,7 @@ h2 {
 }
 
 p {
-  font-size: 30px;
+  font-size: 35px;
   grid-column-start: 1;
   grid-column-end: 4;
   text-align: center;
@@ -65,6 +64,36 @@ button {
   letter-spacing: 10px;
   width: 300px;
   grid-column-start: 2;
+  font-family: inherit;
+  grid-row-start: 5;
+  -webkit-appearance: none;
+  background: #fdda48;
+  border: solid black 1px;
+}
+
+.difficulty {
+  width: 200px;
+  height: 30px;
+  font-size: 20px;
+  grid-row-start: 4;
+  display: inline;
+  position: relative;
+  color: #f3ff32;
+}
+
+#easy {
+  grid-column-start: 1;
+  background: #2e0872;
+}
+
+#medium {
+  grid-column-start: 2;
+  background: #f95800;
+}
+
+#hard {
+  grid-column-start: 3;
+  background: #90028a;
 }
 
 div {
@@ -76,17 +105,17 @@ div {
 
 #starter-square {
   position: relative;
-  grid-row-start: 4;
+  grid-row-start: 3;
 }
 
 #starter-circle {
   position: relative;
-  grid-row-start: 4;
+  grid-row-start: 3;
 }
 
 #starter-triangle {
   position: relative;
-  grid-row-start: 4;
+  grid-row-start: 3;
 }
 
 .shape {
@@ -94,29 +123,95 @@ div {
 }
 
 .square {
-  background: blue;
+  background: #f95800;
+  transition: bottom 2s, left 2s;
+  transition-timing-function: linear;
+  cursor: pointer;
 }
+
+/* .square:hover {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right:50px solid transparent;
+  border-bottom: 100px solid #90028a;
+  background: transparent;
+  transition-property: all;
+  transition-duration: 1s, 3s;
+  transition-timing-function: linear;
+} */
 
 .triangle {
   width: 0;
   height: 0;
   border-left: 50px solid transparent;
   border-right:50px solid transparent;
-  border-bottom: 100px solid green;
+  border-bottom: 100px solid #90028a;
   background: transparent;
-  transition: transform .2s ease-in-out;
+  transition: bottom 2s, left 2s;
+  transition-timing-function: linear;
+  cursor: pointer;
 }
+
+/* .triangle:hover {
+  border-color: #2e0872;
+  background: #2e0872;
+  border-radius: 50%;
+  transition-property: all;
+  transition-duration: 1s, 3s;
+  transition-timing-function: linear;
+} */
 
 .circle {
   border-radius: 50%;
-  background: magenta;
+  background: #2e0872;
+  transition: bottom 2s, left 2s;
+  transition-timing-function: linear;
+  cursor: pointer;
 }
 
-
-
-/* footer {
-  background: yellow;
-  height: 70px;
-  text-align: center;
-  font-size: 60px;
+/* .circle:hover {
+  background: #f95800;
+  border-radius: 0%;
+  transition-property: all;
+  transition-duration: 1s, 3s;
+  transition-timing-function: linear;
 } */
+
+h3 {
+  font-size: 100px;
+  text-align: center;
+  position: relative;
+  animation-name: move;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.endButton {
+  font-size: 50px;
+  text-align: center;
+  position: relative;
+  animation-name: bMove;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes bMove {
+  0% {
+    bottom: -100px;
+  }
+  100% {
+    bottom: -30px;
+  }
+}
+
+@keyframes move {
+  0% {
+    top: -100px;
+  }
+  100% {
+    top: 100px;
+  }
+}

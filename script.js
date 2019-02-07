@@ -1,29 +1,53 @@
+const body = document.querySelector("body")
 const shape = document.querySelector("div");
-const button = document.querySelector("button")
+const button = document.querySelector(".start");
+const easyButton = document.querySelector("#easy")
+const medButton = document.querySelector("#medium")
+const hardButton = document.querySelector("#hard")
+const diffButton = document.querySelectorAll(".difficulty")
 const display = document.querySelector('#clock');
-const main = document.querySelector("main")
-const allShapes = document.querySelectorAll("div")
-const title = document.querySelector("#title")
+const main = document.querySelector("main");
+const allShapes = document.querySelectorAll("div");
+const title = document.querySelector("#title");
 const shapeSelection = ["square", "triangle", "circle"]
-const placeTime = document.querySelector("#clock")
-const starterSquare = document.querySelector("#starter-square")
-const starterTriangle = document.querySelector("#starter-triangle")
-const starterCircle = document.querySelector("#starter-circle")
-const tutorialPage = document.querySelector("section")//tutorial pagerandomPosition
-let time = 5;
-// const square = document.querySelector('shape square')
-// const triangle = document.querySelector('shape triangle')
-// const circle = document.querySelector('shape circle')
+const placeTime = document.querySelector("#clock");
+const starterSquare = document.querySelector("#starter-square");
+const starterTriangle = document.querySelector("#starter-triangle");
+const starterCircle = document.querySelector("#starter-circle");
+const tutorialPage = document.querySelector("section");
+let time = 30;
+let difficulty = 12;
+const easyNum = 12;
+const mediumNum = 14;
+const hardNum = 16;
+// const difficult;
 
+const selectDifficulty = (ev) => {
+  if (ev.target === easyButton) {
+    title.innerText = "Easy Mode";
+    difficulty = easyNum;
+  } else if (ev.target === medButton) {
+    title.innerText = "Mediocre Mode";
+    difficulty = mediumNum;
+  } else if (ev.target === hardButton) {
+    title.innerText = "Boss Mode";
+    difficulty = hardNum;
+  }
+}
+
+easyButton.addEventListener("click", selectDifficulty);
+medButton.addEventListener("click", selectDifficulty);
+hardButton.addEventListener("click", selectDifficulty)
 
 const createShapes = () => {
-    for(let i = 0; i < 12; i++) {
+    for(let i = 0; i < difficulty; i++) {
       const shape = document.createElement("div");
       shape.id = "shapes" + i;
       shape.classList.add("shape");
       shape.classList.add(shapeSelection[Math.floor(Math.random() * shapeSelection.length)]);
+      shape.style.left = -200 + "px"
       main.appendChild(shape);
-      setInterval(randomPosition, 1000, shape);
+      setInterval(randomPosition, 1500, shape);
     }
 }
 
@@ -63,19 +87,19 @@ const changeShape = (ev) => {
  }
 }
 
-const getRid = () => {
-    document.querySelectorAll(".shape").forEach( (el) => {
-      el.remove();
-      display.remove();
-    })
-  }
+main.addEventListener('click', changeShape);
 
 const winPage = () => {
   let highestTimeoutId = setTimeout(";");
   for (let i = 0; i < highestTimeoutId; i++) {
     clearTimeout(i);
   }
-  alert("YOU WON")
+  const winMsg = document.createElement("h3");
+  const msg = document.createTextNode("HEY DUDE! YOU WON");
+  winMsg.appendChild(msg);
+  main.appendChild(winMsg);
+
+  title.innerText = "Spectacular job!"
 }
 
 const losePage = () => {
@@ -83,27 +107,53 @@ const losePage = () => {
   for (let i = 0; i < highestTimeoutId; i++) {
     clearTimeout(i);
   }
-  alert("YOU LOST")
+  const loseMsg = document.createElement("h3");
+  const lost = document.createTextNode("WAY TO BE, YOU LOST")
+  loseMsg.appendChild(lost);
+  main.appendChild(loseMsg);
+
+  title.innerText = "You are a dissapointment";
+}
+
+const getRid = () => {
+    document.querySelectorAll(".shape").forEach( (el) => {
+      el.remove();
+      // display.remove();
+    })
+
+  }
+
+const resetGame = () => {
+  body.appendChild(tutorialPage);
+  main.remove();
+  getRid();
+}
+
+const resetButton = () => {
+  const endButton = document.createElement("button")
+  const txt = document.createTextNode("Play again?")
+  endButton.classList.add("endButton")
+  endButton.appendChild(txt);
+  main.appendChild(endButton);
+
+  endButton.addEventListener("click", resetGame)
 }
 
 const endGame = () => {
   const madShapes = document.querySelectorAll(".shape");
-  if (document.querySelectorAll(".square").length === 12 && time > 0) {
-    document.createElement("h1")
+  if (document.querySelectorAll(".square").length === difficulty && time > 0) {
       winPage();
-      console.log("you won");
-  } else if (document.querySelectorAll(".triangle").length === 12 && time > 0) {
+      resetButton();
+  } else if (document.querySelectorAll(".triangle").length === difficulty && time > 0) {
       winPage();
-      console.log("you won");
-  } else if (document.querySelectorAll(".circle").length === 12 && time > 0) {
+      resetButton();
+  } else if (document.querySelectorAll(".circle").length === difficulty && time > 0) {
       winPage();
-      console.log("you won");
+      resetButton();
   } else if (time < 0) {
       losePage();
+      resetButton();
   } else {
     title.innerText = "Click Those Shapes!";
   }
 }
-
-//change shape function
-main.addEventListener('click', changeShape);

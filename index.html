@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script defer src="script.js" charset="utf-8"></script>
     <meta charset="utf-8">
@@ -14,8 +15,11 @@
     <main>
       <section>
         <h2>Welcome to the game</h2>
-        <p>In order to win the game, instructions</p>
-        <button type="button" name="button">Start</button>
+        <p>All shapes on the page must be of the same type, try clicking on the shapes below to see how they change. Then pick your difficulty and hit start!</p>
+        <button class="difficulty" id="easy" type="checkbox" name="difficulty" value="Easy">Easy</button>
+        <button class="difficulty" id="medium" type="checkbox" name="difficulty" value="Medium">Medium</button>
+        <button class="difficulty" id="hard" type="checkbox" name="difficulty" value="Hard">Hard</button>
+        <button class="start" type="button" name="button">Start</button>
         <div id="starter-square" class="shape square">
 
         </div>
@@ -23,9 +27,6 @@
         </div>
         <div id="starter-circle" class="shape circle">
         </div>
-      </section>
-      <section id="win-page">
-
       </section>
     </main>
   </body>
