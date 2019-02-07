@@ -16,6 +16,10 @@ const starterTriangle = document.querySelector("#starter-triangle");
 const starterCircle = document.querySelector("#starter-circle");
 const tutorialPage = document.querySelector("section");
 let time = 30;
+let difficultyTime = 2000;
+const easyTime = 2000;
+const mediumTime = 1500;
+const hardTime = 1200;
 let difficulty = 12;
 const easyNum = 12;
 const mediumNum = 14;
@@ -24,7 +28,7 @@ const hardNum = 16;
 
 const selectDifficulty = (ev) => {
   if (ev.target === easyButton) {
-    title.innerText = "Easy Mode";
+    title.innerText = "Lazy Mode";
     difficulty = easyNum;
   } else if (ev.target === medButton) {
     title.innerText = "Mediocre Mode";
@@ -76,6 +80,7 @@ const changeShape = (ev) => {
  if (ev.target.className === "shape square"){
    ev.target.classList.add('triangle');
    ev.target.classList.remove("square");
+
  }
  else if (ev.target.className === "shape triangle") {
    ev.target.classList.add('circle');
@@ -88,6 +93,23 @@ const changeShape = (ev) => {
 }
 
 main.addEventListener('click', changeShape);
+
+const changeTutorialShape = (ev) => {
+  if (ev.target.className === "starter-square"){
+    ev.target.classList.add('starter-triangle');
+    ev.target.classList.remove("starter-square");
+  }
+  else if (ev.target.className === "starter-triangle") {
+    ev.target.classList.add('starter-circle');
+    ev.target.classList.remove('starter-triangle');
+  }
+  else if (ev.target.className === "starter-circle") {
+    ev.target.classList.add("starter-square");
+    ev.target.classList.remove("starter-circle");
+  }
+}
+
+main.addEventListener("click", changeTutorialShape)
 
 const winPage = () => {
   let highestTimeoutId = setTimeout(";");
@@ -124,9 +146,7 @@ const getRid = () => {
   }
 
 const resetGame = () => {
-  body.appendChild(tutorialPage);
-  main.remove();
-  getRid();
+  location.reload();
 }
 
 const resetButton = () => {
