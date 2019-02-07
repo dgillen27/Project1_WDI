@@ -1,4 +1,3 @@
-const body = document.querySelector("body")
 const shape = document.querySelector("div");
 const button = document.querySelector(".start");
 const easyButton = document.querySelector("#easy")
@@ -7,38 +6,26 @@ const hardButton = document.querySelector("#hard")
 const diffButton = document.querySelectorAll(".difficulty")
 const display = document.querySelector('#clock');
 const main = document.querySelector("main");
-const allShapes = document.querySelectorAll("div");
 const title = document.querySelector("#title");
 const shapeSelection = ["square", "triangle", "circle"]
-const placeTime = document.querySelector("#clock");
-const starterSquare = document.querySelector("#starter-square");
-const starterTriangle = document.querySelector("#starter-triangle");
-const starterCircle = document.querySelector("#starter-circle");
 const tutorialPage = document.querySelector("section");
 let time = 30;
-let difficultyTime = 2000;
-const easyTime = 2000;
-const mediumTime = 1500;
-const hardTime = 1200;
-let difficulty = 12;
-const easyNum = 12;
-const mediumNum = 14;
-const hardNum = 16;
-// const difficult;
+let difficultyTime = 1600;
+let difficulty = 15;
 
 const selectDifficulty = (ev) => {
   if (ev.target === easyButton) {
-    title.innerText = "Lazy Mode";
-    difficulty = easyNum;
-    difficultyTime = easyTime
+    title.innerText = "LAZY MODE";
+    difficulty = 12;
+    difficultyTime = 2000;
   } else if (ev.target === medButton) {
-    title.innerText = "Mediocre Mode";
-    difficulty = mediumNum;
-    difficultyTime = mediumTime
+    title.innerText = "TUFF MODE";
+    difficulty = 15;
+    difficultyTime = 1700;
   } else if (ev.target === hardButton) {
-    title.innerText = "Boss Mode";
-    difficulty = hardNum;
-    difficultyTime = hardTime
+    title.innerText = "BOSS MODE";
+    difficulty = 16;
+    difficultyTime = 1500;
   }
 }
 
@@ -54,7 +41,7 @@ const createShapes = () => {
       shape.classList.add(shapeSelection[Math.floor(Math.random() * shapeSelection.length)]);
       shape.style.left = -200 + "px"
       main.appendChild(shape);
-      setInterval(randomPosition, 1500, shape);
+      setInterval(randomPosition, difficultyTime, shape);
     }
 }
 
@@ -124,7 +111,8 @@ const winPage = () => {
   winMsg.appendChild(msg);
   main.appendChild(winMsg);
 
-  title.innerText = "Spectacular job!"
+  main.removeEventListener('click', changeShape);
+  title.innerText = "SPECTACULAR JOB!"
 }
 
 const losePage = () => {
@@ -137,7 +125,8 @@ const losePage = () => {
   loseMsg.appendChild(lost);
   main.appendChild(loseMsg);
 
-  title.innerText = "You are a dissapointment";
+  main.removeEventListener('click', changeShape);
+  title.innerText = "BETTER LUCK NEXT TIME!";
 }
 
 const getRid = () => {
@@ -153,7 +142,7 @@ const resetGame = () => {
 
 const resetButton = () => {
   const endButton = document.createElement("button")
-  const txt = document.createTextNode("Try again?")
+  const txt = document.createTextNode("TRY AGAIN?")
   endButton.classList.add("endButton")
   endButton.appendChild(txt);
   main.appendChild(endButton);

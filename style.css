@@ -53,7 +53,7 @@ h2 {
 }
 
 p {
-  font-size: 35px;
+  font-size: 40px;
   grid-column-start: 1;
   grid-column-end: 4;
   text-align: center;
@@ -67,8 +67,9 @@ button {
   font-family: inherit;
   grid-row-start: 6;
   -webkit-appearance: none;
-  background: #fdda48;
+  background: linear-gradient(to right, #f95800, #90028a, #2e0872);
   border: none;
+  color: #f3ff32;
 }
 
 button:focus {
@@ -81,11 +82,15 @@ button:hover {
   outline: none;
 }
 
+#pick {
+  grid-row-start: 4;
+}
+
 .difficulty {
   width: 220px;
-  height: 30px;
-  font-size: 20px;
-  grid-row-start: 4;
+  height: 50px;
+  font-size: 40px;
+  grid-row-start: 5;
   display: inline;
   position: relative;
   color: #f3ff32;
@@ -93,17 +98,17 @@ button:hover {
 
 #easy {
   grid-column-start: 1;
-  background: #2e0872;
+  background: linear-gradient(to right, #f95800, #90028a);
 }
 
 #medium {
   grid-column-start: 2;
-  background: #f95800;
+  background: linear-gradient(to right, #90028a, #2e0872);
 }
 
 #hard {
   grid-column-start: 3;
-  background: #90028a;
+  background: linear-gradient(to right, #2e0872, #f95800);
 }
 
 div {
@@ -142,11 +147,11 @@ div {
 
 .shape {
   position: absolute;
+  transition: bottom 1.5s, left 1.5s;
 }
 
 .square {
   background: #f95800;
-  transition: bottom 1.5s, left 1.5s;
   transition-timing-function: linear;
   cursor: pointer;
 }
@@ -159,7 +164,6 @@ div {
   border-right:50px solid transparent;
   border-bottom: 100px solid #90028a;
   background: transparent;
-  transition: bottom 1.5s, left 1.5s;
   transition-timing-function: linear;
   cursor: pointer;
 }
@@ -167,7 +171,6 @@ div {
 .circle {
   border-radius: 50%;
   background: #2e0872;
-  transition: bottom 1.5s, left 1.5s;
   transition-timing-function: linear;
   cursor: pointer;
 }
@@ -190,6 +193,7 @@ h3 {
   animation-duration: 2s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
+  box-shadow: 0px 0px 50px 10px red;
 }
 
 @keyframes bMove {
