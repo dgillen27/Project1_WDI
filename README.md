@@ -1,4 +1,4 @@
-# Project 1 WDI Dan Gillen, Click Those Shapes!
+# Project 1 WDI Dan Gillen, Matchy Shapes!
 
 ## Instructions
 

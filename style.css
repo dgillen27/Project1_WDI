@@ -4,11 +4,11 @@
 }
 
 body {
-
   margin: 0 auto;
   font-family: 'Major Mono Display', monospace;
   background: #ffda41;
 }
+
 header {
   display: grid;
   grid-template-columns: 1fr 1fr;
