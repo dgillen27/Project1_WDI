@@ -10,22 +10,22 @@ const title = document.querySelector("#title");
 const shapeSelection = ["square", "triangle", "circle"]
 const tutorialPage = document.querySelector("section");
 let time = 30;
-let difficultyTime = 1600;
+let difficultyTime = 1700;
 let difficulty = 15;
 
 const selectDifficulty = (ev) => {
   if (ev.target === easyButton) {
     title.innerText = "LAZY MODE";
     difficulty = 12;
-    difficultyTime = 2000;
+    difficultyTime = 2100;
   } else if (ev.target === medButton) {
     title.innerText = "TUFF MODE";
     difficulty = 15;
-    difficultyTime = 1700;
+    difficultyTime = 1800;
   } else if (ev.target === hardButton) {
     title.innerText = "BOSS MODE";
     difficulty = 16;
-    difficultyTime = 1500;
+    difficultyTime = 1600;
   }
 }
 
