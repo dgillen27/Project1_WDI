@@ -1,5 +1,7 @@
 # Project 1 WDI Dan Gillen, Matchy Shapes!
 
+Deployed here http://matchyshapes.surge.sh/
+
 ## Instructions
 
 In this game, the objective is to change the shape of each floating object to one uniform shape. You do this by clicking on the existing randomly generated shapes.
