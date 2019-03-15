@@ -46,7 +46,7 @@ const createShapes = () => {
 }
 
 const randomPosition = (shape) => {
-  const styleBottom = Math.floor(Math.random() * (window.innerHeight - 200));
+  const styleBottom = Math.floor(Math.random() * (window.innerHeight - 210));
   const styleLeft = Math.floor(Math.random() * (window.innerWidth - 100));
 
     shape.style.bottom = `${styleBottom}px`;
@@ -107,7 +107,7 @@ const winPage = () => {
     clearTimeout(i);
   }
   const winMsg = document.createElement("h3");
-  const msg = document.createTextNode("HEY DUDE! YOU WON");
+  const msg = document.createTextNode("CONGRATS! YOU WON");
   winMsg.appendChild(msg);
   main.appendChild(winMsg);
 
@@ -117,11 +117,11 @@ const winPage = () => {
 
 const losePage = () => {
   let highestTimeoutId = setTimeout(";");
-  for (let i = 0; i < highestTimeoutId; i++) {
+  for (let i = -1; i < highestTimeoutId; i++) {
     clearTimeout(i);
   }
   const loseMsg = document.createElement("h3");
-  const lost = document.createTextNode("WAY TO BE, YOU LOST")
+  const lost = document.createTextNode("WAY TO BE, YOU LOST");
   loseMsg.appendChild(lost);
   main.appendChild(loseMsg);
 
@@ -165,6 +165,6 @@ const endGame = () => {
       losePage();
       resetButton();
   } else {
-    title.innerText = "Click Those Shapes!";
+    title.innerText = "CLICK THOSE SHAPES!";
   }
 }
