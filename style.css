@@ -218,7 +218,7 @@ h3 {
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 940px) {
   header {
     display: flex;
     align-items: center;
